@@ -1,0 +1,203 @@
+DevOps [Software Development Lifecycle (SDLC) ]:
+                                                     
+
+1.Waterfall Model :
+
+                  start ---->        Requirement/gathering/analysis
+                                                  |
+                                       Design/architect/planning
+                                                  |
+                                          Implementation/code
+                                                  |
+                                                 Test
+                                                  |
+                                        Deploy/Release/Delivery
+                                                  |
+                                             Maintenance    ---------> Finish
+
+
+Drawbacks : ->It is not suitable for complex projects, Where changes are in high frequency.
+            ->Time taking process.
+	    ->Until unless the stage is not completed, then we can't go for next stage at the same time we cannot go back.
+ 
+-> In order to address these issues or limitations, we have next model called Agile methodology.
+
+2.Agile methodology :     
+
+-> In the Agile methodology each project is broken up into several "iterations".
+-> All iterations should be the same time duration between 2 to  8 weeks.
+-> At the end of each iterations, a working product (MVP) Minimum Viable Product should be delivered.
+
+
+
+Limitations : 
+              Developer Team     |      Operations Team
+                                 |   
+             Wants changes       |      Wants Stability          
+
+DevOps: Dev    +     Operations
+
+Development without DevOps culture : 
+-> Release and deploy mismatch.
+-> Unpredictable issues.
+-> Blame game.
+-> Lack of Monitoring
+
+Development with DevOps culture :
+ -> Streamlined deliveries.
+ -> Team work collaboration.
+ -> Continuous monitoring and feedback.
+
+What needs to be done?
+
+
+  Developer:
+-> Use system with little or no waiting time.
+-> Use system with updated code.
+
+  Operations:
+-> Systems should be up and running most of the time.
+-> System required for easy administration.
+-> Effective monitoring and feedback systems should be established.
+
+
+
+What DevOps is NOT:
+
+-> DevOps is not a role, person or organisation.
+-> DevOps is not a separate team.
+-> DevOps is not a product or tool.
+-> DevOps is not about just writing the scripts or implementing tools.
+
+What is DevOps: 
+
+DevOps is a practice that allows single team to manage entire application development life cycle, i.e. development, Testing, Deployment and monitoring.
+                   
+                        [ code - Production ]
+
+What does DevOps do :
+
+-> Integrates development and operations team.
+-> Improves collaboration and productivity by: 
+    -> Automating infrastructure
+    -> Automating workflows
+    -> Continuously measuring application performances.
+
+Skills of a DevOps engineer : 
+
+Tools :-
+
+	   ->Version control system (Git)
+           ->Continuous Integration (Jenkins)
+           ->Containerization (Docker/Kubernetes)
+           ->Configuration management (Puppet/Ansible)
+           ->Monitoring (Nagios/Prometheus/ Grafana)
+
+Networking skills :- 
+
+-> General networking skills- Establishing connection between the containers/port forwarding/container orchestration.
+
+Other skills :-
+
+               ->People skills.
+               ->Process skills.
+               ->Customer skills and Empathy.
+               ->Cloud Awareness.
+
+                                                          DevOps Lifecycle:
+
+                                  1.Plan   2.Code   3.Build   4.Test   5.Release   6.Deploy   7.Operate   8.Monitor
+
+1.Plan: (Jira/Trello/Tricentis) :
+-> First stage of DevOps cycle, where you can plan, track, visualize and summarize your project before working/starting it.
+
+2.Code : (Git/Eclipse/Subversion) :
+ -> Second stage of DevOps cycle where the developers write their code.
+
+3.Build : (Maven/Gradle/Apache Ant/ Jenkins) :
+-> Build pre release version and is defined by build number, Rather than by release number.
+
+4.Test : (Apache Jmeter/JUnit/Selenium):
+-> Process of executing automated test as a part of the software delivery pipeline in order to obtain feedback on the business risks associated with a software release as rapidly as a possible.
+
+5.Release : (Travis CI/GitLab/Bamboo):
+ -> This phase helps to integrate code into a shade repository using which you can detect and locate errors quickly and easily.
+
+6.Deploy : (Aws/chef/Ansible):
+ -> Manage and maintain development and deployment of software systems and servers in any computational environment.
+
+7.Operattions : (Aws/Ansible/Chef):
+ This phase is to keep the system upgraded with the latest update.
+
+8.Monitoring : (Nagios/Splunk/Sensu/Prometheus/Grafana):
+ -> It ensures that the application is performing as desire  and the environment is stable. It quickly determines when a service is unavailable and understand the underlaying causes.
+
+
+Services and Tools going to cover:
+
+Windows-O.S
+SCM - Git
+Build Tool - Apache Maven
+Web Sever - Apache Tomcat
+CI/CD - Jenkins
+{1-Mini Project}
+(on all of above tools)
+
+
+Cloud, Cloud computing
+Instance - Aws (or) Azure
+Linux
+SCM - Git
+Build Tool - Apache Maven
+Web server - Apache Tomcat
+CI/CD - Jenkins
+{1-Mini Project}
+
+Containerization - Docker
+container Orchestration - k8's
+Configure Management - Ansible
+Monitoring - Prometheus with Grafana 
+Cloud Services
+Infrastructure as Code - Terraform.
+
+
+                                                         
+                                           Version Control System / Source control Management  
+
+ LVC-Local version control system
+ CVC-Centralized version control system 
+ DVC-Distributed version control system
+
+ -> Why we are using version control system
+   -> For collaboration, storing version, figuring out what going and backup for that we are using version control system   
+  
+->What is Version Control System?
+ -> Version Control is a system that documents change made to a file or a set of files. It allows multiple users to manage multiple versions of the same unit information. 
+ -> It is a snapshots of you project over time.
+
+Version Control Types:
+
+1.Local Version Control:
+-> The practice of having the version database in the local computer.
+-> Local database keeps a record of the changes made to files in the version database.
+
+Issues: Multiple people parallelly working on the same project.
+Solution: Centralized Version Control System.
+
+2.Centralized Version Control:
+->Local version control issues are resolved by CVCS.
+->In CVC, a central repository is maintained where all the versioned files are kept.
+->Now, users can check out and check in files from their different computers at any time.
+
+Issues: In case of central server failure, the whole system goes down.
+Solution: Distributed Version Control System.
+
+
+3.Distributed Version Control :
+->Version database is stored at every user on the local system and at the remote server.
+->Users manipulate the local files and then upload the changes to the remote server.
+->If any of the servers die, a client server can be used to restore.
+
+
+
+
