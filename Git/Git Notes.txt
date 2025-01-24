@@ -1,0 +1,253 @@
+-> What is Git?
+-> Git is an open-source DVCS (Distributed Version Control System) which records changes made to the files.
+
+-> Git Workflow :
+
+			Remote Repository
+				|
+			     (Clone)
+	Working Copy <-> Staging Area <-> Local Repository
+(Pull/Fetch)           (Index)             (Push)
+				|
+			(Commit Changes)
+
+-> Remote repository is the server where all the collaborators upload changes made to the files.
+
+->Local Repository: 
+
+->It is a user’s copy of the version database.
+->The user accesses all the files through the local repository and then pushes the changes made to the remote repository.
+
+->Work Space:-
+
+->It is the user’s active directory.
+->The user modifies existing files and creates new files in the space. Git tracks these changes compared to your local repository.
+
+->Staging area (or) Index area:-
+
+->Stage is a place where all the modified files marked to be commited are placed.
+ 
+->Clone:-
+
+->clone command creates a copy of an existing remote repository inside the local repository.
+
+->Push:-
+
+->push command pushes all the change made in the local repository to the remote repository.
+
+->Fetch:-
+
+->Fetch command collect the changes which is made in the remote repository and copies them to the local repository. This command doesn't affect our workspace.
+
+->Pull:-
+
+->Pull like fetch, gets all the changes from the remote repository and copies them to the local repository.
+->Pull merges those changes to the current working directory.
+
+							
+
+							Branching Strategies: (Steps):-
+							--------------------------------
+
+-> Base - Main - Major - Master - Snapshot of project
+-> Dev
+-> QA/Test
+-> Release branch
+-> Features
+-> Hot fixes-Production-Base
+-> PR- Pull Requests
+
+
+Some of the git commands and their differences:-
+
+-> Difference of "git rm --cached<file>..." to unstage vs git restore filename
+-> git commit -am (for existing files) and git commit -m (for new files)
+-> git revert- used for get back to staging area from commit changes before pushing the repository (undo the changes from commit to back)
+->Syntax for git amend for changes in message: git commit --amend -m "Message to replace and modify"
+->Commit tags:- Syntax: git tag -a <annotation> <commit id> -m <message>
+git show <tag-name>
+
+Dot git folder:-
+->When we clone the empty repository for the very first time. We have the two objects Dot Git folder & README.md (optional)
+
+->How will you change the default branch name:- The default branch is considered the "base" branch in your repository against which all pull requests and code commits are automatically made, unless you specify a different branch.
+
+-> How to delete the repository?
+ Once you delete the repository there is no going back. please be certain.
+
+->How we invite the users to github repository?
+-->General setting-->Access--> Collaboration
+
+-->Git command:- First we have clone and next manipulate and next go to working area and to the staging area and commit to the local repository and next push to the remote repository.
+
+--> Git commands:
+--->pwd (It shows current working directory path)
+--->mkdir(It creates a folder)
+--->touch "filename"(It creates a file)
+--->cat>filename (to add the data)
+--->cat filename (to show the data)
+
+->command for configuration:-
+--> git config--global user.email "you@example.com"
+--> git config--global user.name your name"
+
+--> Command to create a new branch--> git branch dev
+--> Command to list the branches in our remote repository
+-->git branch
+---> How to switch one branch to another branch?--> git switch and git checkout main
+
+-->The current branch dev has no upstream branch. To push the current branch and set the remote as upstream, use
+     git.push -- set-upstream origin dev
+
+-->To delete the branch---> git branch -d "branch name"
+--> We have deleted a branch in local how that will get reflect in remote repository
+-->cat>file2.txt (To add the data)
+-->cat file2.txt (To show the data)
+
+For single (>)- If we don't have file it creates the file
+For double(>>)- If we have already file it over write the file
+
+-->git stash- Stash the changes in a dirty working directory away.
+    -->We can use git -stash in any of the areas like working area and staging etc.,
+--> Purpose of the git -stash
+    git stash list [<log-options>]
+    git stash pop [-index][q-quiet] --(To resume the work)
+
+
+---> How to push the folder from local repository to remote repository?
+       --> git status-->git add--> git commit -m "add"--> git push
+
+--> If we have to create a folder in the file:
+-pwd
+-la
+-ls-la
+-cd "foldername" to change the directory
+-touch filename
+-git add
+-git commit -m "add"
+-git push
+
+							   GIT Commands:-
+							-------------------
+1)git init
+
+Purpose: Initializes an empty git repository in the current directory.
+
+Importance: This is the first step in any new Git project. It creates the necessary hidden .git directory that stores all the Git metadata.
+
+
+2)git clone <repository_url>
+
+Purpose: Creates a local copy of an existing Git repository from a remote server.
+
+Importance: Allows you to work on a project that's already been started by others or to collaborate with others on a project.
+
+
+3)git add <file_name>
+
+Purpose: Stages changes in a file for inclusion in the next commit.
+
+Importance: You must stage files before committing them. This gives you control over which changes are included in each commit.
+
+
+4)git add .
+
+Purpose: Stages all changes in the current directory for inclusion in the next commit.
+
+Importance: A shortcut for adding multiple files at once.
+
+
+5)git commit -m "<commit changes>
+
+Purpose: Creates a new commit with the specified message.
+
+Importance: Commits are snapshots of your project at a particular point in time. They allow you to track changes and revert to previous versions if needed.
+
+
+6)git status
+
+Purpose: Shows the current state of the working directory and staging area.
+
+Importance: Helps you understand which files have been modified, staged, or committed.
+
+
+7)git diff
+
+Purpose: Shows the differences between the current file and the last committed version.
+
+Importance: Useful for reviewing changes before committing them.
+
+
+8)git log
+
+Purpose: Displays the commit history of the current branch.
+
+Importance: Allows you to see the order of commits, their messages, and the authors.
+
+
+9)git branch
+
+Purpose: Lists all existing branches.
+
+Importance: Helps you navigate between different branches and understand the project branching structure.
+
+
+10)git checkout <branch_name>
+
+Purpose: Switches to the specified branch.
+
+Importance: Enables you to work on different features or versions of your project simultaneously.
+
+
+11)git merge <branch name>
+
+Purpose: Merges the specified branch into the current branch.
+
+Importance: Integrates changes from other branches into your current work.
+
+
+12)git push <remote_name> <branch_name>
+
+Purpose: Pushes local commits to a remote repository.
+
+Importance: Shares your changes with others and updates the central repository.
+
+
+13)git pull <remote_name> <branch_name>
+
+Purpose: Fetches and merges changes from a remote repository into your local branch.
+
+Importance: Keeps your local branch up-to-date with the latest changes from others.
+
+
+14)git fetch <remote_name>
+
+Purpose: Downloads objects and references from a remote repository without merging them into any branch.
+
+Importance: Allows you to inspect the remote repository before merging any changes.
+
+
+15)git rebase <branch_name>
+
+Purpose: Re-applies commits from the current branch to the specified branch.
+
+Importance: Can create a clear commit history, should be used with caution.
+
+
+16)git reset --hard <commit_hash>
+
+Purpose: Resets the current branch to the specified commit.
+
+Importance: Can be used to undo changes or revert to a previous state of the project.
+
+
+17)git revert <commit_hash>
+
+Purpose: Creates a new commit that undoes the changes introduced by the specified commit.
+
+Importance: A safer way to undo changes than git reset as it preserves the commit history.
+
+
+
+
+
