@@ -157,7 +157,7 @@ Purpose: Stages all changes in the current directory for inclusion in the next c
 Importance: A shortcut for adding multiple files at once.
 
 
-5)git commit -m "<commit changes>
+5)git commit -m "<commit changes>"
 
 Purpose: Creates a new commit with the specified message.
 
@@ -220,7 +220,7 @@ Purpose: Fetches and merges changes from a remote repository into your local bra
 Importance: Keeps your local branch up-to-date with the latest changes from others.
 
 
-14)git fetch <remote_name>
+14)git fetch <remote_branchname>
 
 Purpose: Downloads objects and references from a remote repository without merging them into any branch.
 
@@ -234,20 +234,320 @@ Purpose: Re-applies commits from the current branch to the specified branch.
 Importance: Can create a clear commit history, should be used with caution.
 
 
-16)git reset --hard <commit_hash>
+16)git reset --hard <commit>
 
 Purpose: Resets the current branch to the specified commit.
 
 Importance: Can be used to undo changes or revert to a previous state of the project.
 
 
-17)git revert <commit_hash>
+17)git revert <commit>
 
-Purpose: Creates a new commit that undoes the changes introduced by the specified commit.
+Purpose: Creates a new commit that undoes the changes made by the specified commit.
 
 Importance: A safer way to undo changes than git reset as it preserves the commit history.
 
+18)git commit --amend
+
+Purpose: Used to modify the last commit. You can add changes to it or alter the commit message.
+
+Importance: Useful for quickly fixing mistakes in the last commit without creating a new commit.
 
 
+19)git reflog
 
+Purpose: Shows a log of changes made to the references (branches, HEAD, etc.) in your repository, including commits that are no longer part of the history.
+
+Importance: Helps you recover lost commits or find out where things went wrong.
+
+
+20)git checkout -b <branch>
+
+Purpose: Creates a new branch and switches to it in a single command.
+
+Importance: Helps in branching out quickly to work on features or fixes without affecting the main branch.
+
+
+21)git reset <file>
+
+Purpose: Unstages a file (removes it from the staging area).
+
+Importance: Allows you to modify your staged changes, whether you want to keep working on them or discard them.
+
+
+22)git clean -n
+
+Purpose: Shows which files will be removed if you run git clean, but does not actually delete them.
+
+Importance: Allows you to safely preview which untracked files will be cleaned up before actually deleting them.
+
+
+23)git remote add <name> <url>
+
+Purpose: Adds a new remote repository with the given URL and assigns it a name (e.g., origin).
+
+Importance: Essential for linking your local repository to a remote repository (e.g., on GitHub, GitLab, etc.).
+
+
+24)git config --global user.name <name>
+
+Purpose: Sets your global username for Git commits.
+
+Importance: Ensures your commits are properly attributed to you.
+
+
+25)git config --global user.email <email>
+
+Purpose: Sets your global email address for Git commits.
+
+Importance: Ensures your commits are properly attributed to your email address.
+
+
+26)git config --global alias. <alias-name> <git-command>
+
+Purpose: Creates an alias for a Git command, e.g., git config --global alias.st status would let you run git st instead of git status.
+
+Importance: Helps speed up your workflow by reducing typing.
+
+
+27)git config --system core.editor <editor>
+
+Purpose: Sets the default editor for Git (e.g., Vim, Nano, VS Code).
+
+Importance: Determines which editor Git opens when you’re asked to write commit messages or edit other configurations.
+
+
+28)git config --global --edit
+
+Purpose: Opens the global Git configuration file for editing.
+
+Importance: Allows you to modify your Git configuration settings directly.
+
+
+29)git diff HEAD
+
+Purpose: Shows the changes that have been made since the last commit.
+
+Importance: Helps you review your changes before committing.
+
+
+30)git diff --cached
+
+Purpose: Shows the changes that are staged for the next commit (the changes in the staging area).
+
+Importance: Useful for reviewing what will be included in the next commit.
+
+
+31)git reset
+
+Purpose: Resets your current HEAD to a specific state, typically used to undo commits or unstage files.
+
+Importance: Provides a way to undo mistakes or get back to a desired state.
+
+
+32)git log -<limit>
+
+Purpose: Displays the commit history with an optional limit on the number of commits to show.
+
+Importance: Helps you quickly view a limited set of commits, useful when you don’t need the full history.
+
+
+33)git log --oneline
+
+Purpose: Shows a condensed version of the commit history with each commit on a single line.
+
+Importance: Provides a quick and easy-to-read overview of the commit history.
+
+
+34)git log -p
+
+Purpose: Shows the commit history with the diff for each commit.
+
+Importance: Useful for reviewing not just the commit messages but also the changes made in each commit.
+
+
+35)git log --stat
+
+Purpose: Shows the commit history along with statistics about the changes (like number of lines added/removed).
+
+Importance: Provides insight into the changes made in each commit.
+
+
+36)git log --author="<pattern>"
+
+Purpose: Filters the commit history by author (matches the specified pattern).
+
+Importance: Helps you view commits made by a specific author.
+
+
+37)git log --grep="<pattern>"
+
+Purpose: Filters the commit history by commit message (matches the specified pattern).
+
+Importance: Useful for finding commits that contain specific keywords in their messages.
+
+
+38)git log <since>..<until>
+
+Purpose: Shows the commit history between two specified commits or dates.
+
+Importance: Useful for reviewing changes within a particular time frame or range.
+
+
+39)git log -- <file>
+
+Purpose: Shows the commit history for a specific file.
+
+Importance: Helps you track the changes made to a particular file over time.
+
+
+40)git log --graph --decorate
+
+Purpose: Displays the commit history as a graph with decorations (e.g., branch names, tags).
+
+Importance: Gives a visual representation of your branch and merge history, making it easier to understand the project’s history.
+
+
+41)git pull --rebase <remote>
+
+Purpose: Pulls changes from a remote repository and rebases your local changes on top of them (instead of merging).
+
+Importance: Keeps a cleaner, linear commit history without merge commits.
+
+
+42) git push <remote> --force
+
+Purpose: Pushes changes to the remote repository, even if it would overwrite existing changes (force push).
+
+Importance: Can be useful in certain situations (e.g., rewriting history) but can also be dangerous if not used carefully, as it can overwrite others’ work.
+
+
+43)git push <remote> --all
+
+Purpose: Pushes all branches to the remote repository.
+
+Importance: Useful for pushing multiple branches at once.
+
+
+44)git push <remote> --tags
+
+Purpose: Pushes all tags to the remote repository.
+
+Importance: Ensures that any tags (typically used for marking releases) are also pushed to the remote.
+
+45)git revert "commit-ID"
+
+Purpose: Creates a new commit that undoes the changes of a specified commit.
+
+Importance: Safely undoes changes without altering commit history, ideal for public/shared repos.
+
+
+46)git restore "File-name"
+
+Purpose: Restores a specific file to its state in the last commit or another commit.
+
+Importance: Quickly discards changes in a file, keeping your work clean.
+
+
+47)git switch "branch-name"
+
+Purpose: Switches to an existing branch.
+
+Importance: Simplifies switching between branches, replacing git checkout for this use case.
+
+
+48)git stash
+
+Purpose: Saves changes temporarily and reverts the working directory to the last commit.
+
+Importance: Allows you to switch contexts (e.g., branches) without committing unfinished work.
+
+
+49)git stash list
+
+Purpose: Lists all stashes saved in the stash stack.
+
+Importance: Helps you track and manage multiple stashes.
+
+
+50)git stash pop
+
+Purpose: Applies the most recent stash and removes it from the stash stack.
+
+Importance: Restores your stashed changes, allowing you to continue working on them.
+
+
+51)git stash drop
+
+Purpose: Deletes a specific stash entry.
+
+Importance: Removes unnecessary stashes, helping to manage the stash stack.
+
+
+52)git stash clear
+
+Purpose: Deletes all stashed entries.
+
+Importance: Clears out all saved stashes, cleaning up the stash stack when no longer needed.
+
+
+53)git stash apply stash{0}
+
+Purpose: Applies a specific stash entry (e.g: stash{0}) without removing it.
+
+Importance: Lets you apply changes from a stash while keeping it for potential reuse.
+
+
+54)git stash drop stash{1}
+
+Purpose: Deletes a specific stash (e.g: stash{1}) from the stack.
+
+Importance: Allows you to remove a particular stash, not all stashes, for better control.
+
+
+55)git merge --abort
+
+Purpose: Aborts the current merge process and restores the working directory to its state before the merge.
+
+Importance: Useful if a merge goes wrong and you want to cancel it cleanly.
+
+
+56)git cherry-pick "commit-id"
+
+Purpose: Applies the changes from a specific commit onto your current branch.
+
+Importance: Allows you to selectively apply commits from other branches without merging the entire branch.
+
+
+57)git push -u origin --all
+
+Purpose: Pushes all local branches to the remote repository (origin).
+
+Importance: Useful when you want to sync multiple branches at once with the remote.
+
+
+58)git remote rm origin
+
+Purpose: Removes the remote repository named origin.
+
+Importance: Cleans up or removes a remote you no longer need to work with.
+
+
+59)git fetch --all
+
+Purpose: Fetches updates for all branches from all remotes.
+
+Importance: Keeps your local repository up to date with remote changes without merging them immediately.
+
+60)git diff <branch1> <branch2>
+
+Purpose: Compares the differences between two branches.
+
+Importance: Allows you to review what differs between branches before merging them.
+
+61)git blame <file>
+
+Purpose: Shows the commit and author information for each line in a file.
+
+Importance: Useful for tracking down the history of changes in a specific file, including who made each change.
 
