@@ -1,0 +1,119 @@
+									Maven
+                                                                       -------
+What is Maven?
+-> Maven is a tool that is used to compile, validate code and analyse the test cases in the code.
+-> Manages the building reporting and documentation from source control management (SCM)
+-> Maven project is configured through project object model (POM).
+-> Pom.xml file contains documentation for all the objects, properties, methods and events.
+
+What Maven is capable of?
+-> Information of project is centralized through Maven.
+-> Our software project is modelled by it.
+-> Build process is managed.
+-> Data about the software project is gathered and then build itself.
+-> Document the software and our project.
+-> Deployable artifacts can be generated from source code.
+-> Your source code is compiled, packed, test and distributed.
+-> Reports is created, website is generated for the project.
+
+Maven Build Lifecycle:-
+-----------------------
+-> In maven, the build run using a pre-defined and ordered set of steps to call the build life-cycle.
+-> The build tasks that will be performed during each phase are determined by the configuration in the project file, and in particular selected packaging.
+-> Maven relies on build lifecycles to define the process of building and distributing artifacts (Eg: Jar files, war files).
+-> ﻿﻿There are three built-in build lifecycles:-
+ ->Default - handles project building and deployment
+ ->Clean - handles project cleaning
+ ->Site - handles project's site generation.
+
+Maven Architecture:-
+
+  plug-in(1)----plug-in(1)----plug-in(3)----plug-in(4)
+       |	     |             |            |
+      			core-engine
+
+Remote repository 		   Local repository
+(organizational level)		(Local machine windows)
+
+Maven Artifacts:-
+----------------
+-> An artifact is a file resulting from packaging a project.
+-> For example it can be a jar, war, ear, .xml file.
+-> Artifacts are deployed in repositories, so they can be used, as dependencies, by other projects.
+-> Artifacts are identified by three components:-
+  -> Group ID->An unique identifier for a group of related artifacts. Usually named like Java packages. (Ex: pt.jpereira.mobile)
+  -> Artifact->An unique identifier, within the content of Group ID, that identifies the artifact (project). Ex: puzzle.
+  -> Version->Also called artifact co-ordinates.
+
+Maven Repository Flow:-
+----------------------
+
+Remote 
+repository----------------|--------------|
+  |                       Step2 	 |
+  |					 |
+  |                                      |
+Step3				    Developer 
+  |					 |
+  |					 |
+Local					 |
+Repositories  			Step1	 |
+ |---------------------------------------|
+           			Step4
+
+Step 1:- When developer executes the command "mvn" it will go and check in the local repository, if founds the dependency or plug-in in local repository developer for the outputs.
+Step 2:- If not found in local repository from developer machines it will go and search in remote repository.
+Step 3:- From remote repository required dependency and plugged- in will get stored in local repository.
+Step 4:- From the local repository developer will get the output.
+
+Project Object Model:- (POM):-
+---------------------
+-> POM is a shortcut of project object model.
+-> XML file located at the root of the project(pom.xml).
+-> It includes configuration for your project, including:-
+  ->Information about the project.
+  ->Configuration details to build the project.
+  ->Contains default values for most of the projects.
+   Ex: Source dir, Target dir
+  ->Dependencies of the project.
+  ->Configuration about plug-ins and goals.
+  ->Used repositories.
+
+Declaring Dependencies:-
+----------------------
+-> While declaring the dependencies, co-ordinates of the artifacts must be provided.
+ ->Group ID:- A unique identifier for the group related artifact.
+ ->Artifact ID:- An artifact is a file which is made after packaging a project and artifact ID is a unique identifier within the content of group ID and it identifies the artifacts.
+ ->Version:- It is an identifier for the release or build number of project.
+
+-> How to Install Maven on windows?
+   --------------------------------
+ ->Pre-requisites:-
+   ---------------
+-> A system running windows.
+-> A working internet connection.
+-> Access to an account with administrator privileges.
+-> A copy of Java installed and ready to use, (learn how to setup the JAVA_HOME) environment variable in our guide to installing Java on windows.
+
+Installation:-
+-------------
+Step 1:- Download Maven zip file and extract in (Maven.apache.org)
+->folder structure of the Apache Maven->bin folder->boot->con->lib.
+
+-> How to install Java on windows:-
+   ------------------------------
+  ->Pre-requisites:-
+    ---------------
+    -> A system running windows 10.
+    -> A network connection.
+    -> Administrator privileges.
+Step 1:- Check if java is installed or not  -->java -version.
+Step 2:- Download java for windows which respects to our windows OS.
+
+
+
+
+
+
+
+    
