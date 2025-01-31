@@ -44,4 +44,71 @@ Apache Tomcat-->Webapps
 ->For logs:-
 Apache Tomcat-->logs (Apache Tomcat and also application which is running inside Tomcat)
 ->We can access Apache tomcat using localhost:8080 (or) 127.0.0.1:8080
+
+
+Installation:-
+------------
+->In Apache Tomcat.org-->windows-->version 11
+->Binary Distributions-->windows zip(pgp, sha512)
+
+
+31/01/2025
+----------
+
+Folder Structure of the Apache Tomcat:-
+--------------------------------------
+->bin  - Start & Stop server
+->log  - server logs
+->conf - configurations
+->webapps -deploy an application
+->
+->temp  - temporary files
+->lib   - required dependencies for server
+
+-> How to access the application URL (127.0.0.1:8080) or (localhost:8080)
+Syntax:  <URL of Tomcat>/<Artifact>
+Eg:- localhost:8080/aja                {where "aja" is --Artifact Name}
+
+
+[Command to get the project created and run through the Gitbash]:
+->mvn archetype:generate -DgroupId=com.example.aja -DartifactId=aja -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+
+
+->How can we place the artifact from Maven project of target folder to Apache Tomcat Webapps folder:
+ --------------------------------------------------------------------------------------------------
+cp<pathwhereartifact><pathwherewebappssoftomcat>
+cp<source> <destination>
+<destination>cp/<source>
+
+Note:-
+->If we do any of the configuration changes, we need to restart the server.
+			
+			-->Tomcat-->bin-->Shutdown with previous server(8080)-->startup server with new default port number(Ex:8888)
+-> .exe file comes under windows service.
+
+-->To deploy the application in another way is by using the Tomcat Graphical User Interface:-
+   -----------------------------------------------------------------------------------------
+->Access the URL of the Tomcat, then search for war file to deploy.
+->Click on choose file button, it will open dialogue box.
+->In dialogue box, you need to select the artifacts, then click on open button.
+->Then we need to click on deploy.
+
+->How can we access the apache tomcat GUI:
+  ----------------------------------------
+->Apache Tomcat (Home folder)--> conf
+->Modify "tomcat-user.xml" (using text editor, Eg: vi tomcat-user.xml)
+->Go to below line 
+<user username="admin"
+->Need to uncomment those lines->"<!--" & "-->"
+->Once after the modifying of tomcat-user.xml, we need to save and quit.
+->Two ways to deploy a artifact---> Manually and GUI
+
+{Note: To view the last 'n'number of lines where 'n' is a number
+->command to view the last 15 lines
+->tail -15 filename
+->Head -15 filename ---> for first 15 lines.
+
+
+
+
  
