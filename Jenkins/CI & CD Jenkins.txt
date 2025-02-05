@@ -1,5 +1,5 @@
 05/02/2025							Continuous Integration
-							----------------------
+----------					             -----------------------------
 Importance:
 ----------
 ->Improves Quality: Improves the quality by running multiple unit tests and analysing various static code.
