@@ -222,4 +222,152 @@ Click the windows link to begin the download.
 
 
 
+06/02/2025
+----------
+
+Plug-in Installation
+--------------------:
+ ->There are two ways to install Plug-ins:
+   --------------------------------------
+->Automatically   ->Manually
+
+Automatically:
+-------------
+->Once we login to Jenkins GUI, left side you will see the option of manage Jenkins.
+
+->Click on Manage Jenkins, in first tab there is system configuration under that we can see plug-ins.
+
+->Click on plug-ins go to available plug-ins and search for the plug-in which is required.
+
+->Select the plug-in under the list once you select the plug-in install button will be highlighted, then click on install button.
+
+Manually:
+--------
+->Under plug-ins tab, go for available plug-ins and search for the plug-in, click on the plug-in which is required.
+
+->Once you click on the plug-in new tab will be opened, then click on releases and under releases you can see various versions of the plug-ins.
+
+->Go for the plug-ins which is required specific version.
+
+->Click on 'direct link' in installation options, once you click on Direct link plug-in will get downloaded to our local machine.
+
+->When we download plug-in in manual way again we need to deploy it to Jenkins.
+
+->In Jenkins GUI plug-ins tab, Click on advanced settings.
+
+->Choose the file to upload which is downloaded to local machine.
+
+
+--> Plug-ins:-
+    -------- 
+-> It is about to add, remove, disable or enable plug-ins that can extend the functionality of Jenkins.
+
+-> When we install plug-in in automatic way, plug-ins extension is .jpi (Jenkins Plug-in) when we install in automatic way.
+
+-> When we install plug-in in manual way, plug-ins extension is hpi (Hudson plug-in).
+
+
+-> How to uninstall the plug-ins:
+   -----------------------------
+  ->Manage Jenkins--> Plug-ins-->Installed plug-ins-->search plug-in and then uninstall button will be highlighted. Once clicked on uninstall, plug-in will get uninstalled.
+
+-> How to Update the Plug-in:
+   -------------------------
+-> Manage Jenkins--> Plug-ins--> Updates
+
+->Select the plug-in and then update button will be highlighted. Once clicked on update, plug-in will get updated.
+
+->In real-time, we should not update the plug-ins directly. Reason being there may be challenges will be encountered.
+
+->It will be recommended the plug-in to update in local machine where other team members will not get affected if anything goes wrong.
+
+
+-> How to Create the Users in Jenkins:-
+  ------------------------------------
+  -> Login to admin console.
+  -> Go to security, before that go to users (create/delete/modify users that can create Jenkins)
+  ->Click on Users--> create user-->Credentials (custom)
+  ->Username-->Password-->Confirm Password-->Full name--> Email Address-->Create
+
+-> How to give permissions to the User:-
+   -----------------------------------
+
+-> Manage Jenkins--> Security (Secure Jenkins, define who is allowed to access/use the system)
+
+-> In Authorization path, add user button, will be asked user ID give the User ID click on OK button.
+
+-> Then give the required permission to the user by checking the box. (The minimum access to give is overall read).
+
+-> By default whatever we create users for Jenkins will stored in "Jenkins own user database". This is suitable for smaller setup where you have no existing user database elsewhere.
+
+-> The other option is "LDAP" (Light weight Directory Access Protocol)
+
+
+-> Authorization Strategies:-
+  --------------------------
+->By default, we will be seeing "Project-based Matrix Authorization Strategy".
+
+->With this we can the authorization, based on the option available under this strategy.
+  Ex:- Overall, credentials, Agent, Job, Run, view etc.,
+
+-> Matrix Authorization Strategy:-
+   -----------------------------
+
+  -> It allows configuring the lowest level permissions, such as starting new builds, configuring items, or deleting them individually.
+
+
+-> Jenkins Project ( Project (or) Job):-
+   ---------------- 
+ -> It is a combination of one or more tasks.
+
+1. Free Style Project:-
+   -------------------
+       -> Classic, generate purpose job type that checks out from up to one SCM, executes build steps serially, followed by post-build steps like archiving artifacts and sending email notifications.
+
+2. Maven Project:
+   --------------
+       -> Build a maven project, Jenkins takes advantage of your POM files and drastically reduces the configuration.
+
+3. Pipeline:
+   --------
+       -> Orchestrates long-running activities that can span multiple build agents, suitable for building pipelines (formerly known as workflows) and/or organizing complex activities that do not easily fit in free-style job type.
+
+4. Multi-configuration project:
+   ----------------------------
+       -> Suitable for projects that need a large number of different configurations, such as testing on multiple environments, platform-specific builds, etc.,
+
+5. Folder:
+   ------
+       -> Creates a container that stores nested items in it. Useful for grouping things together. Unlike view, which is just a filter, a folder creates a separate namespace, so you can have multiple things of the same name as long as they are in different folders.
+
+6. Multibranch pipeline: 
+   --------------------
+       -> Creates a set of pipeline projects according to detected branches in one SCM repository.
+
+7. Organization folder:
+   -------------------
+       -> Creates a set of multibranch project subfolders by scanning for repositories.
+
+
+-> How to Create the Job (or) Project:
+   -----------------------------------
+  -> In Jenkins GUI, you can see in left pane side 'New item' click on it and "enter an item name".
+
+  -> Then select an item type, once after selecting any item click on OK button.
+
+  -> The job configuration is consist of General (where we can give information (or) description about the project), then in source code management where we will be passing URL's of the repositories, next to that build triggers (In what way we want to trigger (or) build that job).
+
+  -> Build environment, build steps(where we can  add tasks), post-build actions.
+
+
+-> How to create a free-style basic Job:
+   -------------------------------------
+  -> New item--> Give the Job name--> Select item type--> Go to the build steps (configuration of the job)--> add build step dropdown--> select execute windows batch command--> type dir --> Click on save
+
+  -> Then Click on build now & check for console output. 
+
+
+
+
+
 
