@@ -364,8 +364,226 @@ Manually:
    -------------------------------------
   -> New item--> Give the Job name--> Select item type--> Go to the build steps (configuration of the job)--> add build step dropdown--> select execute windows batch command--> type dir --> Click on save
 
-  -> Then Click on build now & check for console output. 
+  -> Click on "Add build Step" dropdown button type 'dir'. Then Click on build now, you will get output then click on console output. 
 
+Blue Ocean:
+----------
+-> Blue ocean rethinks the Jenkins user experience designed from the ground up for Jenkins pipeline and compatible with free-style jobs.
+
+
+
+07/02/2025
+----------
+
+-> What if  Jenkins Administrator, there is a provision to reset the user credentials:
+   -----------------------------------------------------------------------------------
+path:
+-----
+Manage Jenkins--> Security--> Users--> Go to user which needs to be reset--> Click on security--> password(change)-->confirm password(change)--> Save
+
+-> As a administrator, once you change the password again you need to inform user which is changed saying please follow below steps to change the password:
+  -> Once login into the user GUI.
+  -> Click on username in top right corner, go to security there you can change the password.
+
+--> What if Jenkins administrator forgot the password:
+    --------------------------------------------------
+
+
+
+
+
+Jenkins Folder:
+--------------
+-> In Windows OS, we can see all the Jenkins information and configuration details under path [C:\ProgramData\Jenkins\.jenkins]
+
+-> Under '.jenkins' folder, we can see users folder (where all the Jenkins user data is available)
+
+-> Work space: Where all the configured secrets are available.
+
+-> Plug-ins: All the plug-ins (which are installed manually and automatically) available.
+
+-> Nodes: Where all the configured notes are available.
+
+-> Logs: We can see slaves(if configured) and tasks where logs are available.
+
+-> Apart from the above folders, there is Jenkins configurational file namely 'config.xml' (if at all changing the config.xml first take the backup of the original file)
+
+-> We can also see the Jenkins logs in Jenkins GUI.
+
+path: Manage Jenkins--> Status information--> System log--> All Jenkins logs
+
+-> We can see the Jenkins version in the bottom right corner in Jenkins GUI and also
+	path: Manage Jenkins--> Status information--> About Jenkins
+
+Website of Cron tab:	[Crontab.guru]
+-------------------      
+
+-> It is used to schedule the jobs in Jenkins.
+
+
+--> Ways to Trigger the Jenkins Jobs?
+    ---------------------------------
+Triggers: -> Setup automated actions that start your build based on specific events, like code changes or scheduled times.
+
+1. Trigger build remotely (Eg: From scripts)
+   ----------------------
+-> In order to use this trigger, first we need to generate the authentication token of the job.
+  	Eg: Enable this option if you would like to trigger new builds by accessing a special pre-defined URL (convenient for scripts)
+
+-> You will need to provide an authorization token in the form of a string so that only those who know it would be able to remotely trigger this project's builds.
+
+-> This is most useful when your Jenkins instance grants read access to this job to anonymous users.
+
+-> When that's not the case, Jenkins will reject requests sent to the trigger URL even when the correct token is specified.
+
+Eg:- Use the following URL to trigger build remotely:
+
+	JENKINS_URL/job/ajafreestyle/build?token=TOKEN_NAME (or) /buildWithParameters?token=TOKEN_NAME
+
+2. Build after other projects are built:  (Upstream and downstream jobs):
+   ------------------------------------
+-> Set up a trigger so that when some other projects finish building, a new build is scheduled for this project. This is convenient for running an extensive test after a build is complete, for example.
+
+-> We need to pass the job name (which are configuration already) under 'project to watch' tab
+ 
+       ->Trigger only if build is stable
+       ->Trigger even if the build is unstable 
+       ->Trigger even if the build fails 
+       ->Always trigger, even if the build is aborted
+
+3. Build periodically: (If Schedule):
+   -------------------
+-> This field follows the syntax of Cron (with minor differences) specifically, each line consist of 5 fields separated by TAB or whitespace:
+
+-> MINUTE/ HOUR/ DOM/ MONTH/ DOW
+
+
+   ->MINUTE  - Within the hour (0-59)
+        -> HOUR    - The hour of the day (0-23)
+        -> DOM     - The day of the month (1-31)
+        -> MONTH   - The Month (1-12)
+        -> DOW     - The day of the week for one field following operators are available in the order of precedence
+
+-> For reference or practice, go with the website [crontab.guru]
+
+
+4. GitHub hook trigger for Git SCM polling:
+   ----------------------------------------
+-> When Jenkins receives a GitHub push hook, GitHub Plugin checks to see whether the hook came from a GitHub repository which matches the Git repository defined in SCM/Git section of this job.
+
+-> This option is available only when GitHub plug-ins is installed.
+
+5. Poll SCM:
+   ---------
+-> Configure Jenkins to poll changes in SCM.
+
+-> Apart from the above 5 trigger options, we can also trigger jobs manually. 
+
+
+
+
+08/02/2025
+----------
+
+Job Configuration of build periodically trigger and poll SCM Trigger:
+---------------------------------------------------------------------
+
+->Create 'New item'
+
+->Go to Triggers tab, check the box build periodically or poll SCM.
+
+->Once clicked on checkbox scheduling comment box will open up. There we need to schedule as per requirement.
+
+	Ex:- To schedule a job at every minute every hour on Saturday 8th February
+
+	[* * * 8 2 6]
+
+->Maintain one single letter gap between the inputs.
+->Where first star means every minute 
+->where second star means every hour
+->where '8' is day of the month (February)
+->where '2' is Month
+->where '6' is day of the week (Saturday)
+->Click on save and check for the jobs whether jobs are running as per the schedule or not.
+
+
+-> Build after other projects are built:
+   ------------------------------------
+->Create more then one job then in triggers option select build after other projects are built.
+
+->Once you checkbox the option need to pass projects to watch name. Then click on save and check.
+	Ex: Job1, Job2, Job3
+->For Job2 put the upstream project as Job1
+->For Job3 put the upstream project as Job2
+
+->When we build the Job1, once Job1 completed automatically downstream projects has to be build.
+
+->For Job2, once select the build after projects build fails and then save.
+
+->For Job1, if we do some mistake wantedly and check for all the jobs.
+
+
+
+--> Pipeline Project:
+    -----------------
+-> We are going to pipeline projects in order to secure the CI-CD pipeline code by storing in any of the repositories.
+	(Eg: GitHub, Gitlab, Bitbucket)
+
+-> Sample helloworld pipeline script creation.
+
+-> Click on new item select pipeline click on OK.
+
+-> Go for pipeline option in configuration, where we can define or write the pipeline script.
+
+-> We can write the script in script tag or else we can take it from SCM.
+
+-> In the script tab, Click on drop-down option to try sample pipeline.
+
+Syntax:
+-------
+
+			pipeline{
+			agent any
+
+			stages{
+			stage('Hello'){
+			steps{
+			echo 'Hello world'
+			}
+		}
+	}
+}
+
+-> Click on save
+
+-> Make sure that stage view plug-in should be installed, so that we can do the changes.
+
+
+
+--> Re-build vs Replay:-
+    ------------------
+
+  ->When we use re-build we are not changing anything, but whereas Replay gives us provision to change the code then and their.
+
+->Replay we can also use it as one of the troubleshooting mechanisms.
+
+->If we do  not know how to write pipeline script code, we can take the advantage of 'Snippet Generator' in pipeline syntax option. (will only visible when you create pipeline project or Job)
+
+->This Snippet generator will help you learn the pipeline script code which can be used to define various steps. Pick a step you are interested in from the list, configure it, click Generate pipeline script, and you will see a pipeline script statement that would call the step with that configuration.
+
+->You may copy and paste the whole statement into your script, or pickup just the options you care about.
+	Eg: To print message: In sample step of snippet generator we can search for the echo.
+	where is a step 'echo: Print message'
+
+->Then what message we want to print, we have to pass it in message block.
+
+->Then click on generate pipeline script which will give  us script to print message.
+
+->By default, pipeline execution will work on serially (one by one). If the previous stage is passed then only it will go for next or further stages.
+
+
+
+ 
 
 
 

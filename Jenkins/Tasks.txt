@@ -1,0 +1,78 @@
+1. What if webhooks in Git? What is the purpose? Why we use it?
+
+Def:
+ A Webhook in Git is a way to trigger automatic actions or notifications when specific events occur in a git repository. 
+	Eg: Push, pull request
+Purpose:
+-> To automate workflows and integrate with external services.
+->To send real-time notifications of repository events.
+
+Use:
+->Automation: Trigger tasks like CI/CD pipelines, tests, or deployments automatically.
+
+->Real-time updates: Instant notifications for events like code changes or issues.
+
+->Integration: Connect Git with external tools (Eg: Slack, Jira, Deployment Services)
+
+->Efficiency: Save time by reducing manual intervention in workflows.
+
+
+2. What is API?
+
+ API (Application Programming Interface): 
+      ----------------------------------
+An API is a set of rules and protocols that allow one software application to interact with another. It defines the methods and formats for communication.
+
+Purpose:
+-> To enable software systems to communicate with each other.
+
+-> To provide a standardized way for developers to access services or data.
+
+--> Where we use API:
+    -----------------
+ -> Web development
+ -> Mobile Apps
+ -> Third-party Integrations
+ 
+--> Why we use API:
+    --------------
+-> Enables System communication
+-> Automates Process
+-> Integrate services
+-> Save development time
+-> Increase Flexibility
+
+
+
+3. What is TDD and BDD?
+
+TDD - Test-Driven Development
+
+Definition: Write tests before writing the actual code.
+
+Process: Write a test--> Run the test (it will fail initially)--> Write just enough code to pass the test--> Refactor code
+
+Jenkins Role: Automates unit test (Eg: JUnit) as part of CI/CD pipeline, providing continuous feedback on code quality.
+
+Advantage: Early bug detection and high code quality.
+
+
+BDD - Behaviour-Driven Development
+
+Definition: Write test in natural language using Given-When-Then scenarios, focusing on business behaviour.
+
+Process: 
+-> Define behaviour in natural language
+-> Write automated tests for those behaviours
+
+Jenkins Role: Runs BDD scenarios using tools like cucumber, reports human-readable test results.
+
+Advantage:
+-> Improved collaboration with non-technical stakeholders, ensuring software meets business requirements.
+
+-> Both methods helps automate testing in Jenkins, improving code quality and ensuring continuous validation.
+
+
+
+
+
