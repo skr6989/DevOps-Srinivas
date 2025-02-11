@@ -1,0 +1,152 @@
+10/02/2025
+----------
+-> How to create new item / Job / Project from existing Jobs:
+   -----------------------------------------------------------
+  -> Click on new item, give the Job name and select the item scroll down to bottom, there you can see 'copy from' option.
+  ->In 'copy from' tab, we need to pass the Job name which we want to make use of existing Job configuration.
+
+Ex: Create Job10 (Take the reference of Job8) configuration
+
+
+
+11/02/2025
+-----------
+ 
+ 
+-> How to change the default port number of Jenkins:
+   ------------------------------------------------
+ 
+ -> Go to the path C:\programFiles\Jenkins 
+ -> In that folder, find the Jenkins.xml file
+ -> Search for ""--httpPort=8080" in Jenkins.xml file
+ 
+   (where '8080' is the default port number)
+ 
+ 
+-> In order to change this default port number, we should replace '8080' by our own required port number.
+
+-> Then save it, once modified this Jenkins.xml file restart the Jenkins server
+ 
+ 
+[Note: Before doing any changes of Jenkins configuration or port number its better to take backup of original files for safer side and security of data.]
+ 
+ 
+-> What if Jenkins Administrator forgot the password: 
+   --------------------------------------------------
+ 
+-> Go to the Jenkins home directory, in 'C' drive
+ 
+  (C:\programData\Jenkins\.jenkins)
+ 
+-> In that path open 'config.xml' file search for <useSecurity>true</useSecurity> replace true with false.
+ 
+   [ <useSecurity>false</useSecurity> ] then save it.
+ 
+
+ --> Then browse and access the Jenkins URL in browser, where we will not see login details in browser.
+
+-> Go for the Manage Jenkins-->security--> Under security realm (when we change config.xml file from true to false it will be None)
+ 
+-> First under 'security Realm' we need to change from None to Jenkins own user data base (this is about Authentication)
+ 
+-> Authorization (When we change the config.xml file from true to false authorization will change to anyone can do anything)
+ 
+-> Here we need change from Anyone can do anything to either 'Matrix-based' or 'Project-based strategy'
+ 
+-> Under that  once you changed the strategy under that 'uncheck' the Anonymous and click on add user button, and add the 'admin user' and give the role as Administrator.
+
+-> Then save it, and go to manage Jenkins-->users->go for admin user->change the password, then save it.
+ 
+-> Then we need to restart the Jenkins server.
+ 
+Note:
+----
+
+-> Better take backup of config.xml for safe side.
+ 
+ 
+-> Once restarting the Jenkins server check with admin user whether admin user has all the privileges or not.
+ 
+-> Then go back to config.xml file and modify <useSecurity> tag from false to true, Once after changed it, then restart the Jenkins server.
+ 
+ 
+-> Using Jenkins Environment Variables:
+   -----------------------------------
+ 
+  -> Jenkins pipeline exposes environment variables via the global variable env, which is available from anywhere within a Jenkins file.
+ 
+	(URL : www.jenkins.io/doc/book/pipeline/jenkinsfile/#using-environment-variables) where we can find Jenkins variables from web.  
+ 
+Below are the some environment variables:-
+-----------------------------------------
+ 
+1.BUILD_ID :
+  
+-> The current build ID, identical to BUILD_NUMBER for builds created.
+ 
+Like wise we have
+ 
+2.BUILD_NUMBER
+
+3.BUILD_URL
+
+4.JENKINS_URL
+
+5.JOB_NAME
+
+6.NODE_NAME
+
+7.WORKSPACE
+ 
+
+--> For example, use the Jenkins file(declarative pipeline)
+
+pipeline-path URL (www.Jenkins.io/doc/book/pipiline/jenkinsfile/#using-environment-variables)
+ 
+in this above URL, we can see example code, copy that code and create new item in Jenkins for pipeline job. 
+
+-> Replace the script with copied code and save it, then build it.
+
+-> Expected output should be 'Running 1' on http://localhost:8080/
+ 
+ 
+--> How to parameterize the Jenkins Job:
+    ------------------------------------
+ 
+ ->Parameter / Variables: Parameter allows you to prompt users for one or more inputs that will be passed into a build.
+ 
+   -> Create new job in general configuration of that job, you can see the option that this project is parameterized.
+
+   -> Needs to 'check' the box that where you will see option 'add parameter' dropdown.
+
+   -> Click on that you will see various parameters:
+
+-> Those are:-
+	->Boolean parameters 
+	->Choice parameter 
+	->Credentials parameter
+	->File parameter
+	->Multi-line string parameter 
+	->Password parameter
+	->Run parameter
+	->String Parameter
+ 
+-> For example : click on choice parameter (defines a simple parameter, which can be selected from a list, you can use it during a build.
+ 
+ 
+-> Give the name as 'env' and under choices we can give more than one environment name.
+
+-> Under description, it will be showed to the user and click on save.
+ 
+-> When you check the job to be triggered you will see build with parameter option. Click on that and select the choices which we configure, and go for build button. This is how we can configure parameterized values.
+ 
+ 
+--> Another way of Creating Jenkins user:
+    -------------------------------------
+ 
+-> Manage Jenkins -->Security --> Checkbox the 'Allow user to sign up' for creating the users in another way in login page.
+
+-> 'Keep me signed in' is not used in a regular basis, because the reason is it is not secure with the URL which can be accessed by anyone and can do anything. So we need to uncheck the box for security purposes.
+
+
+
